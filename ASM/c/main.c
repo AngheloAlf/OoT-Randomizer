@@ -15,6 +15,7 @@
 #include "twinrova.h"
 #include "extern_ctxt.h"
 #include "fog.h"
+#include "analog.h"
 
 void c_init() {
     heap_init();
@@ -31,6 +32,7 @@ void before_game_state_update() {
     update_hud_colors();
     process_extern_ctxt();
     override_fog_state();
+    handle_analogs();
 }
 
 void after_game_state_update() {
