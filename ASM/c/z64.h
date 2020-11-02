@@ -106,7 +106,7 @@ typedef struct
 {
   uint16_t mode;
   uint16_t unk_01_;
-  z64_camera_params_t *seg_params; /* segment address of z64_camera_params_t */
+  uint32_t seg_params; /* segment address of z64_camera_params_t */
 } z64_camera_t;
 
 typedef struct
