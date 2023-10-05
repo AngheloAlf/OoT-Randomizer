@@ -198,6 +198,7 @@ ludicrous_items_extended: list[str] = [
     'Ocarina C left Button',
     'Ocarina C down Button',
     'Ocarina C right Button',
+    'Upgradeful bow',
 ]
 
 ludicrous_exclusions: list[str] = [

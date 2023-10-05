@@ -2081,6 +2081,8 @@ typedef uint16_t (*z64_Audio_GetActiveSeqId_proc)(uint8_t seqId);
                                                       z64_DisplayTextbox_addr)
 #define z64_GiveItem            ((z64_GiveItem_proc)  z64_GiveItem_addr)
 
+void z64_Inventory_ChangeUpgrade(int16_t upgrade, int16_t value);
+
 #define z64_LinkDamage          ((z64_LinkDamage_proc)z64_LinkDamage_addr)
 #define z64_LinkInvincibility   ((z64_LinkInvincibility_proc)                 \
                                                       z64_LinkInvincibility_addr)

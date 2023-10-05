@@ -267,3 +267,34 @@ void unlock_ocarina_note(z64_file_t *save, int16_t arg1, int16_t arg2) {
             break;
     }
 }
+
+typedef enum {
+    /* 0x00 */ UPG_QUIVER,
+    /* 0x01 */ UPG_BOMB_BAG,
+    /* 0x02 */ UPG_STRENGTH,
+    /* 0x03 */ UPG_SCALE,
+    /* 0x04 */ UPG_WALLET,
+    /* 0x05 */ UPG_BULLET_BAG,
+    /* 0x06 */ UPG_DEKU_STICKS,
+    /* 0x07 */ UPG_DEKU_NUTS,
+    /* 0x08 */ UPG_MAX
+} UpgradeType;
+
+asm(".equ z64_Inventory_ChangeUpgrade, 0x80081294");
+
+// TODO: consider using this macros instead of hardcoding the values
+#define SLOT(item) gItemSlots[item]
+#define INV_CONTENT(item) save->items[SLOT(item)]
+#define AMMO(item) save->ammo[SLOT(item)]
+#define CAPACITY(upg, value) gUpgradeCapacities[upg][value]
+
+void give_upgradeful_bow(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    //z64_Inventory_ChangeUpgrade(UPG_QUIVER, 3);
+    //((void(*)(int16_t, int16_t))0x80081294)(UPG_QUIVER, 3);
+
+    save->quiver &= ~0x00000007;
+    save->quiver |= 3 << 0;
+
+    save->items[Z64_SLOT_BOW] = ITEM_BOW;
+    save->ammo[Z64_SLOT_BOW] = 50;
+}
